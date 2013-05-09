@@ -1,5 +1,7 @@
 Ruby-Closet
 ====================
+<p>Ruby Closet is a Ruby application that takes a user's closet inventory and picks out an outfit based on weather conditions, outside temperature, and the user's style.</p>
+
 Purpose
 ---------------------
 <p>Stuff goes here</p>
@@ -10,13 +12,17 @@ Project Status / TODO
 
 Features
 ---------------------
-<p>Coming soon...</p>
+<ul>
+  <li>Provide outfits based on user's style.</li>
+  <li>Knows what outfits are being currently worn and selects a new outfit in same category as worn outfit.</li>
+  <li>Keeps track of dirty and clean clothes in laundry basket.</li>
+</ul>
 
 Usage Instructions
 ---------------------
-<p>To add a new task:</p>
+<p>Instructions will go here:</p>
 
-<code>> fp add "My new task"</code>
+<code>>some code goes here</code>
 
 Demo
 ---------------------
