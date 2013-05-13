@@ -9,6 +9,6 @@ User Stories
 
 <p>As a user, I want outfits to be categorized based on the weather and style for the occasion I need the outfit for.</p>
 
-<p>As a user, I want to closet to keep track of current close I'm wearing.</p>
+<p>As a user, I want to  to keep track of current clothes I'm wearing.</p>
 
 <p>As a user, I want the closet to keep track of dirty and clean clothes, so I don't get stuck wearing dirty clothes.</p>
