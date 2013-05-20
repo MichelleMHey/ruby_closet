@@ -1,0 +1,19 @@
+RUBY CLOSET
+
+Ruby Closet is a Ruby application that stores your closet inventory and picks out an outfit based on the users style, outside temperature, and weather conditions.
+
+Part I:
+
+Adding closet inventory to Ruby Closet.
+
+Part II:
+
+Picking out an outfit. The user will tell ruby the outside temperature, the weather condition, and style of outfit they want to wear. Ruby will return three outfits for the user to choose from. If the user does not like what Ruby picked, they can ask Ruby to pick out another three outfits from their closet.
+
+Part III:
+
+After the user chooses they outfit, Ruby takes the outfit out of the closet. If the user needs more than one outfit choices a day, Ruby will generate new options, however what the user already has on, will not be included in Ruby's outfit choices. 
+
+Part IV:
+
+To put outfits back in the closet, the user can tell Ruby that they are finished wearing the clothes. Ruby will ask the user if they are dirty. If the clothes are dirty, Ruby will put the clothes in the laundry hamper. If the clothes are clean, Ruby puts them back in the closet to be worn again. When the user does laundry in real life, they can tell ruby to reset laundry hamper, which puts their clothes back in the closet. 

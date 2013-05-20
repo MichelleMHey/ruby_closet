@@ -29,3 +29,6 @@ class TestRemovingProject < MiniTest::Unit::TestCase
     assert_equal 2, Project.count
   end
 end
+
+
+

@@ -27,3 +27,6 @@ class TestAddingProject < MiniTest::Unit::TestCase
     assert results.include?('Name must be unique'), "Actually was '#{results}'"
   end
 end
+
+
+
