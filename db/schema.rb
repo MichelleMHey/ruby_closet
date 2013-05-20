@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519122300) do
+ActiveRecord::Schema.define(:version => 20130520085300) do
+
+  create_table "closet_clothes", :force => true do |t|
+    t.integer "closet_id"
+    t.string  "name_of_article"
+    t.string  "type_of_clothing"
+    t.string  "description_of_clothes"
+  end
 
   create_table "closet_owners", :force => true do |t|
     t.string  "name"
