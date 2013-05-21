@@ -12,7 +12,7 @@ if command == "add"
   clothing = Clothing.new(name: clothes_name)
   if clothing.save
     puts "Success!"
-  else
+  else 
     puts "Failure :( #{clothing.errors.full_messages.join(", ")}"
   end
 elsif command == "list"
