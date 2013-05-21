@@ -5,9 +5,9 @@ connect_to 'test'
 
 ENV['FP_ENV'] = 'test'
 
-module DatabaseCleaner
+module DatabaseCleaner 
   def before_setup
     super
-    Clothes.destroy_all
+    Clothing.destroy_all
   end
 end
