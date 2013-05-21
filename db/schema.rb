@@ -13,8 +13,8 @@
 
 ActiveRecord::Schema.define(:version => 20130521101400) do
 
-  create_table "closet_clothes", :force => true do |t|
-    t.string  "description"
+  create_table "clothings", :force => true do |t|
+    t.string  "name"
     t.integer "style_id"
     t.integer "temperature_id"
   end
