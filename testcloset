@@ -6,30 +6,36 @@ connect_to database
 
 wellcome_message = "\nWellcome to Ruby Closet!\n
   Need something to wear?\n
-  - To generate an outfit to wear, type 'some code goes here'
-  - To add an outfit to your closets inventory, type: ruby testcloset add 'your_piece_of_clothing'
-  - To list your Ruby Closet inventory, type: ruby testcloset list
-  - To remove clothing in your Ruby Closet, type: ruby testcloset remove 'your_piece_of_clothing'"
+  - To generate an outfit to wear, type 'generate'
+  - To add an outfit to your closets inventory, type 'add'
+  - To list your Ruby Closet inventory, type 'list'
+  - To remove clothing in your Ruby Closet, type 'remove'"
   puts wellcome_message
 
-# ARGV = [add, foo]
-command = ARGV[0]
+#ARGV = [add, foo]
+#command = ARGV[0]
 
+command = gets.chomp
 if command == "add"
-  clothing_name = ARGV[1]
+  puts "Please add the name of the clothing, style of clothing, and temperature of clothing (ex: hot, cold, warm). Enter text like this(name: 'Red Skirt', style: 'Dressy', temperature: 'Warm')."
+  clothing_name = gets.chomp
+  #clothing_name = ARGV[1]
   clothes = Clothing.new(name: clothing_name)
   if clothes.save
-    puts "Success!"
+    puts "Success! New clothing added!"
   else
     puts "Failure :( #{clothes.errors.full_messages.join(", ")}"
   end
 elsif command == "list"
+  puts "Here is your current closet inventory."
   clothings = Clothing.all
   clothings.each_with_index do |clothes, i|
     puts "#{i+1}. #{clothes.name}"
   end
 elsif command == "remove"
-  clothing_name = ARGV[1]
+  puts "What clothing would you like to remove?"
+  clothing_name = gets.chomp
+  #clothing_name = ARGV[1]
   matching_clothes = Clothing.where(name: clothing_name).all
   matching_clothes.each do |clothes|
     clothes.destroy
