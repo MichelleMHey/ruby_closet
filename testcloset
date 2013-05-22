@@ -4,6 +4,14 @@ require_relative 'bootstrap_ar'
 database = ENV['TC_ENV'] || 'development'
 connect_to database
 
+wellcome_message = "\nWellcome to Ruby Closet!\n
+  Need something to wear?\n
+  - To generate an outfit to wear, type 'some code goes here'
+  - To add an outfit to your closets inventory, type: ruby testcloset add 'your_piece_of_clothing'
+  - To list your Ruby Closet inventory, type: ruby testcloset list
+  - To remove clothing in your Ruby Closet, type: ruby testcloset remove 'your_piece_of_clothing'"
+  puts wellcome_message
+
 # ARGV = [add, foo]
 command = ARGV[0]
 
