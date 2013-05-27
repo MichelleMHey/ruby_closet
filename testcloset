@@ -1,43 +1,36 @@
-#!/usr/bin/env ruby
+  #!/usr/bin/env ruby
 
-require_relative 'bootstrap_ar'
-database = ENV['TC_ENV'] || 'development'
-connect_to database
+  require_relative 'bootstrap_ar'
+  database = ENV['TC_ENV'] || 'development'
+  connect_to database
 
-wellcome_message = "\nWellcome to Ruby Closet!\n
-  Need something to wear?\n
-  - To generate an outfit to wear, type 'generate'
-  - To add an outfit to your closets inventory, type 'add'
-  - To list your Ruby Closet inventory, type 'list'
-  - To remove clothing in your Ruby Closet, type 'remove'"
-  puts wellcome_message
+  command = ARGV[0]
 
-#ARGV = [add, foo]
-#command = ARGV[0]
+  welcome_message = "\nWelcome to Ruby Closet!\n
+    Need something to wear?\n
+    - To generate an outfit to wear, type 'generate'
+    - To add an outfit to your closets inventory, type 'add'
+    - To list your Ruby Closet inventory, type 'list'
+    - To remove clothing in your Ruby Closet, type 'remove'
+    - To end a prompt, type 'exit'"
+  while true
+    
+  puts welcome_message
 
-command = gets.chomp
-if command == "add"
-  puts "Please add the name of the clothing, style of clothing, and temperature of clothing (ex: hot, cold, warm). Enter text like this(name: 'Red Skirt', style: 'Dressy', temperature: 'Warm')."
-  clothing_name = gets.chomp
-  #clothing_name = ARGV[1]
-  clothes = Clothing.new(name: clothing_name)
-  if clothes.save
-    puts "Success! New clothing added!"
-  else
-    puts "Failure :( #{clothes.errors.full_messages.join(", ")}"
-  end
-elsif command == "list"
-  puts "Here is your current closet inventory."
-  clothings = Clothing.all
-  clothings.each_with_index do |clothes, i|
-    puts "#{i+1}. #{clothes.name}"
-  end
-elsif command == "remove"
-  puts "What clothing would you like to remove?"
-  clothing_name = gets.chomp
-  #clothing_name = ARGV[1]
-  matching_clothes = Clothing.where(name: clothing_name).all
-  matching_clothes.each do |clothes|
-    clothes.destroy
+  command = gets.chomp
+
+  controller = TestClosetController.new
+
+  if command == "add"
+    controller.add
+
+  elsif command == "list"
+    controller.list
+
+  elsif command == "remove"
+    controller.remove
+  elsif command == "exit"
+    break
   end
 end
+
