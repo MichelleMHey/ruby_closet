@@ -21,7 +21,7 @@ Usage Instructions
 <p>Instructions to run Ruby Closet:</p>
 
 <p>To first run the program:</p>
-<code>ruby rubycloset</code>
+<code>ruby rubycloset\</code>
 
 <p>To generate an outfit from closet inventory:</p>
 <code>generate</code>
