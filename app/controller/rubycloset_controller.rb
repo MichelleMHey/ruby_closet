@@ -65,7 +65,7 @@ class RubyClosetController
   end
 
   def add
-    puts "Please add the name of the clothing, style of clothing, and temperature of clothing:"
+    puts "Please add the name of the clothing:"
 
     clothes = Clothing.new
 
@@ -75,6 +75,7 @@ class RubyClosetController
       clothes.name = clothing_name
 
       while true
+        puts "Please add the style of clothing:"
         print "Style (casual/work/dressy/active): "
         clothing_style = gets.chomp
         if ['casual', 'work', 'dressy', 'active'].include? clothing_style
@@ -86,6 +87,7 @@ class RubyClosetController
       end
 
       while true
+        puts "Please add the temperature of the clothing:"
         print "Temperature (hot/warm/cool/cold): "
         clothing_temperature = gets.chomp
         if ['hot', 'warm', 'cool', 'cold'].include? clothing_temperature
@@ -97,6 +99,7 @@ class RubyClosetController
       end
 
       while true
+        puts "Please add the type of clothing:"
         print "Type of clothing (top/bottom/shoes/dress/jacket): "
         clothing_type = gets.chomp
         if ['top', 'bottom', 'shoes', 'dress', 'jacket'].include? clothing_type
