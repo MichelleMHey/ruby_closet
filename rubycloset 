@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+require_relative 'bootstrap_ar'
+database = ENV['RC_ENV'] || 'development'
+connect_to database
+
+command = ARGV[0]
+
+welcome_message = "\nWelcome to Ruby Closet!\n
+  Need something to wear?\n
+  - To generate an outfit to wear, type 'generate'
+  - To add an outfit to your closets inventory, type 'add'
+  - To list your Ruby Closet inventory, type 'list'
+  - To remove clothing in your Ruby Closet, type 'remove'
+  - To end a prompt, type 'exit'
+  - To repeat this message, type 'help'"
+
+puts welcome_message
+
+while true
+  command = gets.chomp
+
+  controller = RubyClosetController.new
+
+  if command == "add"
+    controller.add
+
+  elsif command == "list"
+    controller.list
+
+  elsif command == "remove"
+    controller.remove
+
+  elsif command == "generate"
+    controller.generate
+
+  elsif command == "help"
+    puts welcome_message
+
+  elsif command == "exit"
+    break
+  end
+end
