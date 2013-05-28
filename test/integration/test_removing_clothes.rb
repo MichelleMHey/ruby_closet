@@ -5,7 +5,7 @@ class TestRemovingClothes < MiniTest::Unit::TestCase
   
   def test_remove_only_one_clothing_name
     Clothing.create( name: 'only child')
-    `ruby testcloset remove "only child"`
+    `ruby rubycloset remove "only child"`
     assert Clothing.all.empty?
   end
 
@@ -14,7 +14,7 @@ class TestRemovingClothes < MiniTest::Unit::TestCase
     Clothing.create( name: 'b' )
     Clothing.create( name: 'c' )
     assert !Clothing.where( name: 'b').all.empty?
-    `ruby testcloset remove b`
+    `ruby rubycloset remove b`
     assert Clothing.where( name: 'b').all.empty?
   end
 
@@ -24,7 +24,7 @@ class TestRemovingClothes < MiniTest::Unit::TestCase
     Clothing.create( name: 'b' )
     Clothing.create( name: 'c' )
     assert !Clothing.where( name: 'b' ).all.empty?
-    `ruby testcloset remove b`
+    `ruby rubycloset remove b`
     assert_equal 2, Clothing.count
   end
 end
