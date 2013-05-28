@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522012900) do
+ActiveRecord::Schema.define(:version => 20130526000001) do
 
   create_table "clothings", :force => true do |t|
-    t.string  "name"
-    t.integer "style_id"
-    t.integer "temperature_id"
+    t.string "name"
+    t.string "style"
+    t.string "temperature"
+    t.string "clothing_type"
   end
 
   create_table "styles", :force => true do |t|
