@@ -21,7 +21,7 @@ Usage Instructions
 <p>Instructions to run Ruby Closet:</p>
 
 <p>To first run the program:</p>
-<code>ruby testcloset</code>
+<code>ruby rubycloset</code>
 
 <p>To generate an outfit from closet inventory:</p>
 <code>generate</code>
@@ -34,6 +34,9 @@ Usage Instructions
 
 <p>To remove clothes from closet inventory:</p>
 <code>remove</code>
+
+<p>To bring back the home screen:</p>
+<code>help</code>
 
 <p>To exit Ruby Closet:</p>
 <code>exit</code>
