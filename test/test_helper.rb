@@ -3,7 +3,7 @@ require_relative '../bootstrap_ar'
 
 connect_to 'test'
 
-ENV['TC_ENV'] = 'test'
+ENV['RC_ENV'] = 'test'
 
 module DatabaseCleaner 
   def before_setup
