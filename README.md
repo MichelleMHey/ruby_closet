@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/MichelleMHey/ruby_closet.png)](https://travis-ci.org/MichelleMHey/ruby_closet)
+
 Ruby Closet
 ====================
 <p>Ruby Closet is a Ruby application that takes a user's closet inventory and picks out an outfit based on type of clothing, style of clothing, and temperature outside.</p>
