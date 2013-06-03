@@ -10,7 +10,7 @@ welcome_message = "\nWelcome to Ruby Closet!\n
   Need something to wear?\n
   - To generate an outfit to wear, type 'generate'
   - To add an outfit to your closets inventory, type 'add'
-  - To list your Ruby Closet inventory, type 'list'
+  - To list your Ruby Closet inventory, type 'list' 
   - To remove clothing in your Ruby Closet, type 'remove'
   - To end a prompt, type 'exit'
   - To repeat this message, type 'help'"
