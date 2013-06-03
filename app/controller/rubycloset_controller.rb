@@ -37,19 +37,11 @@ class RubyClosetController
     if tops.empty?
       puts "Don't have any tops."
       all_available = false
-    end
-
-    if bottoms.empty?
+    elsif bottoms.empty?
       puts "Don't have any bottoms."
-      all_available = false
-    end
-
-    if shoes.empty?
+    elsif shoes.empty?
       puts "Don't have any shoes."
-      all_available = false
-    end
-
-    if all_available
+    elsif all_available
       puts tops.shuffle![0].name
       puts bottoms.shuffle![0].name
       puts shoes.shuffle![0].name
