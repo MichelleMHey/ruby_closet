@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/MichelleMHey/ruby_closet.png)](https://travis-ci.org/MichelleMHey/ruby_closet)
-[![Code Climate](https://codeclimate.com/github/MichelleMHey/ruby_closet.png)](https://codeclimate.com/github/MichelleMHey/ruby_closet)
+
 
 Ruby Closet
 ====================
