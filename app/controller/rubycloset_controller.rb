@@ -29,35 +29,31 @@ class RubyClosetController
     ask_info(request_message, can_choose, error_message)
   end
 
+  def get_clothing(style, temperature, clothing_type)
+    Clothing.where("style = ? AND temperature = ? AND clothing_type = ?", style, temperature, clothing_type)
+  end
+
+  def available_clothes(available_message, collection)
+    if collection.empty?
+      puts available_message
+      return false
+    end
+    true
+  end
+
   def generate
 
     style = ask_style
     temperature = ask_temperature
+    
+    tops = get_clothing(style, temperature, 'top')
+    bottoms = get_clothing(style, temperature, 'bottom')
+    shoes = get_clothing(style, temperature, 'shoes')
 
-    tops = Clothing.where("style = ? AND temperature = ? AND clothing_type = ?", style, temperature, 'top')
-    bottoms = Clothing.where("style = ? AND temperature = ? and clothing_type = ?", style, temperature, 'bottom')
-    shoes = Clothing.where("style = ? AND temperature = ? and clothing_type = ?", style, temperature, 'shoes')
-
-    all_available = true
-    if tops.empty?
-      puts "Don't have any tops."
-      all_available = false
-    end
-
-    if bottoms.empty?
-      puts "Don't have any bottoms."
-      all_available = false
-    end
-
-    if shoes.empty?
-      puts "Don't have any shoes."
-      all_available = false
-    end
-
-    if all_available
-      puts tops.shuffle![0].name
-      puts bottoms.shuffle![0].name
-      puts shoes.shuffle![0].name
+    if available_clothes("Do not have any tops.", tops) & available_clothes("Do not have any bottoms.",bottoms) & available_clothes("Do not have any shoes.",shoes)
+       puts tops.shuffle![0].name
+       puts bottoms.shuffle![0].name
+       puts shoes.shuffle![0].name
     end
   end
 
