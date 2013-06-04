@@ -2,32 +2,37 @@ class RubyClosetController
 
   def initialize
   end
+  
+  def ask_info(request_message, can_choose, error_message)
+    while true
+      print request_message
+      user_info = gets.chomp
+      if can_choose.include? user_info
+        return user_info
+      else
+        puts error_message
+      end
+    end
+  end
+  
+  def ask_style
+    request_message = "Style (casual/work/dressy/active): " 
+    can_choose = ['casual', 'work', 'dressy', 'active']
+    error_message = "Please type one of the following values: (casual/work/dressy/active)"
+    ask_info(request_message, can_choose, error_message)
+  end
+
+  def ask_temperature
+    request_message = "Temperature (hot/warm/cool/cold): "
+    can_choose = ['hot', 'warm', 'cool', 'cold']
+    error_message = "Please type one of the following values: (hot/warm/cool/cold)"
+    ask_info(request_message, can_choose, error_message)
+  end
 
   def generate
-    style = ''
-    temperature = '' 
 
-    while true
-        print "Style (casual/work/dressy/active): "
-        clothing_style = gets.chomp
-        if ['casual', 'work', 'dressy', 'active'].include? clothing_style
-          style = clothing_style
-          break
-        else
-         puts "Please type one of the following values: (casual/work/dressy/active)"
-        end
-      end
-
-      while true
-        print "Temperature (hot/warm/cool/cold): "
-        clothing_temperature = gets.chomp
-        if ['hot', 'warm', 'cool', 'cold'].include? clothing_temperature
-          temperature = clothing_temperature
-          break
-        else
-          puts "Please type one of the following values: (hot/warm/cool/cold)"
-        end
-      end
+    style = ask_style
+    temperature = ask_temperature
 
     tops = Clothing.where("style = ? AND temperature = ? AND clothing_type = ?", style, temperature, 'top')
     bottoms = Clothing.where("style = ? AND temperature = ? and clothing_type = ?", style, temperature, 'bottom')
@@ -37,11 +42,19 @@ class RubyClosetController
     if tops.empty?
       puts "Don't have any tops."
       all_available = false
-    elsif bottoms.empty?
+    end
+
+    if bottoms.empty?
       puts "Don't have any bottoms."
-    elsif shoes.empty?
+      all_available = false
+    end
+
+    if shoes.empty?
       puts "Don't have any shoes."
-    elsif all_available
+      all_available = false
+    end
+
+    if all_available
       puts tops.shuffle![0].name
       puts bottoms.shuffle![0].name
       puts shoes.shuffle![0].name
