@@ -50,15 +50,31 @@ class RubyClosetController
     bottoms = get_clothing(style, temperature, 'bottom')
     shoes = get_clothing(style, temperature, 'shoes')
 
-    if available_clothes("Do not have any tops.", tops) & available_clothes("Do not have any bottoms.",bottoms) & available_clothes("Do not have any shoes.",shoes)
-       puts tops.shuffle![0].name
-       puts bottoms.shuffle![0].name
-       puts shoes.shuffle![0].name
+    all_available = true
+    if tops.empty?
+      puts "Don't have any tops."
+      all_available = false
+    end
+
+    if bottoms.empty?
+      puts "Don't have any bottoms."
+      all_available = false
+    end
+
+    if shoes.empty?
+      puts "Don't have any shoes."
+      all_available = false
+    end
+
+    if all_available
+      puts tops.shuffle![0].name
+      puts bottoms.shuffle![0].name
+      puts shoes.shuffle![0].name
     end
   end
 
   def list
-    puts "Here is your current closet inventory."
+    puts "Here is your furrent closet inventory."
     clothings = Clothing.all
     clothings.each_with_index do |clothes, i|
       puts "#{i+1}. #{clothes.name} #{clothes.style} #{clothes.temperature} #{clothes.clothing_type}"
